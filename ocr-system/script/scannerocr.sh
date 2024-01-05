@@ -47,8 +47,7 @@ echo "Start processing $(TRIGGERED_FILE)"
   for PDFFILE in $PDFFILES
   do
     if [ -f "${PDFFILE}" ]; then
-      #wir schmeissen es erstmal nur weg		
-      rm "$PDFFILE"
+      python3 /home/scanner/script/pdfshuffler.py   "$PDFFILE" "${SCANNER_INBOX}"
     fi
   done
   #process pdf files in inbox/
