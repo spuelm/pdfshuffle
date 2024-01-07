@@ -1,7 +1,6 @@
 import sys
 import os
 
-
 from PyPDF4 import PdfFileReader, PdfFileWriter
 
 def shuffle_pages(pdf_path,target):
@@ -10,8 +9,10 @@ def shuffle_pages(pdf_path,target):
     # Rotate page 90 degrees to the right
     docPages=pdf_reader.numPages
     for pagenum in range(docPages//2):
+        # vorderseite
         page= pdf_reader.getPage(pagenum)
         pdf_writer.addPage(page)
+        # rückseite
         page= pdf_reader.getPage(docPages-pagenum-1)
         pdf_writer.addPage(page)
     tfile= os.path.join(target, os.path.basename(pdf_path))
